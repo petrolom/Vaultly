@@ -1,0 +1,155 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #dfeaf5;
+  color: #1d1d1d;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background: #f8f8f8;
+  width: 90%;
+  max-width: 620px;
+  border: 1px solid #d5d5d5;
+  border-radius: 10px;
+  padding: 24px 20px;
+  box-shadow: 2px 3px 0 #c9c9c9;
+}
+
+h1, h3, h4 {
+  margin: 0 0 18px;
+  text-align: center;
+  font-weight: bold;
+  color: #222;
+}
+
+h1 {
+  font-size: 2.2rem;
+}
+
+input, button {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 8px 0;
+  padding: 10px 12px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: white;
+}
+
+button {
+  background: #3e8e41;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+button:hover {
+  background: #367a39;
+}
+
+.search {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+#entries {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 18px;
+}
+
+#entries .entry {
+  display: grid;
+  grid-template-columns: 1.5fr 1.2fr 1.2fr 40px 110px;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 8px;
+  margin-bottom: 8px;
+  background: #efefef;
+  border: 1px solid #d7d7d7;
+  border-radius: 6px;
+}
+
+.entry-name {
+  font-weight: bold;
+  font-size: 1.05rem;
+}
+
+.entry-user,
+.entry-pass {
+  font-size: 0.95rem;
+  word-break: break-word;
+}
+
+.password-hidden {
+  background: rgba(0, 0, 0, 0.1);
+  color: transparent;
+  border-radius: 4px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  user-select: none;
+}
+
+.reveal {
+  text-align: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  user-select: none;
+}
+
+.reveal:hover {
+  color: #2f6f34;
+}
+
+.delete {
+  background: #b54d4d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 8px;
+  font-size: 0.9rem;
+  width: auto;
+  min-width: 90px;
+}
+
+.delete:hover {
+  background: #994040;
+}
+
+.hlptxt {
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .card {
+    width: 94%;
+    padding: 18px 14px;
+  }
+
+  h1, h3, h4 {
+    font-size: 1.6rem;
+  }
+
+  #entries .entry {
+    grid-template-columns: 1fr 1fr 1fr 30px 80px;
+    gap: 6px;
+    padding: 8px 6px;
+  }
+
+  .entry-name,
+  .entry-user,
+  .entry-pass {
+    font-size: 0.9rem;
+  }
+
+  .delete {
+    min-width: 70px;
+    font-size: 0.8rem;
+  }
+}

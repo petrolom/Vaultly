@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Password Vault</title>
+  <link rel="stylesheet" href="style.css?v=3" />
+</head>
+<body>
+  <div class="card">
+    <h1>Password Vault</h1>
+
+    <div id="accountInit">
+      <button onclick="createAccount()">Create Account</button>
+      <button onclick="showLogin()">Login</button>
+    </div>
+
+    <!-- Register Section -->
+    <div id="registerSection" style="display:none;">
+      <h3>Register</h3>
+      <input id="regUsername" placeholder="Choose username" />
+      <input id="regEmail" placeholder="Your email for 2FA (real one you will need it!)" />
+      <div style="position:relative;">
+        <input id="regPassword" type="password" placeholder="Choose password" oninput="showPasswordStrength(this.value)" />
+        <span class="reveal" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:1.5em;" onclick="toggleInputPassword('regPassword', this)">👁</span>
+      </div>
+      <div id="passwordStrength" style="margin-bottom:8px;"></div>
+      <button onclick="registerUser()">Create Vault</button>
+      <button onclick="goBack()">← Back</button>
+    </div>
+
+    <!-- Login Section -->
+    <div id="loginSection" style="display:none;">
+      <h3>Login</h3>
+      <input id="loginUsername" placeholder="Username" />
+      <div style="position:relative;">
+        <input id="loginPassword" type="password" placeholder="Password" />
+        <span class="reveal" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:1.5em;" onclick="toggleInputPassword('loginPassword', this)">👁</span>
+      </div>
+      <button onclick="request2FACode()">Send 2FA Code</button>
+      <input id="login2fa" placeholder="Enter 2FA Code" maxlength="6" />
+      <button onclick="login()">Login</button>
+      <div class="hlptxt">
+          <p><a href="#" onclick="showHelp()">Help</a></p>
+      </div>
+      <button onclick="goBack()">← Back</button>
+    </div>
+
+    <div id="helpSection" style="display:none;">
+      <h4>Reset Password</h4>
+      <input id="resetMasterKey" placeholder="Enter your master key" />
+      <div style="position:relative;">
+        <input id="resetNewPassword" type="password" placeholder="New password" />
+        <span class="reveal" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:1.5em;" onclick="toggleInputPassword('resetNewPassword', this)">👁</span>
+      </div>
+      <button onclick="resetPassword()">Reset</button>
+
+      <h4>Find Username</h4>
+      <input id="lookupMasterKey" placeholder="Enter your master key" />
+      <button onclick="getUsername()">Get Username</button>
+      <button onclick="showLogin()">← Back</button>
+    </div>
+
+    <div id="vault" style="display:none;">
+      <h3>My Vault</h3>
+      <div id="entries">
+        <div class="entry">
+          <div class="entry-details">
+            <span class="entry-name">Entry Name</span>
+            <span class="entry-user">Username</span>
+            <span class="entry-pass password-hidden" id="pass-...">Password</span>
+          </div>
+          <span class="reveal" onclick="togglePassword('...')">👁</span>
+          <button class="delete" onclick="deleteEntry('...')">Delete</button>
+        </div>
+      </div>
+      <input id="entryName" placeholder="Entry Name" />
+      <input id="entryUser" placeholder="Username/Email" />
+      <input id="entryPass" placeholder="Password" />
+      <button onclick="saveEntry()">Save Entry</button>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
