@@ -63,9 +63,9 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'my2fasender@gmail.com';
-    $mail->Password = 'exipdupcoeqptibc';
-    $mail->SMTPSecure = 'tls';
+    $mail->Username = '';
+    $mail->Password = '';
+    $mail->SMTPSecure = '';
     $mail->Port = 587;
 
     $mail->setFrom('my2fasender@gmail.com', 'Password Vault');
